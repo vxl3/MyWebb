@@ -1,136 +1,83 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NEURO•FUTURE</title>
-  <meta name="theme-color" content="#0b0f1a" />
-  
-  <!-- أيقونة الموقع (Favicon) -->
-  <link rel="icon" href="https://dummyimage.com/64x64/0b0f1a/6EE7FF&text=HE" type="image/png" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { display: ['Orbitron','system-ui'] },
-          colors: { neon: '#6EE7FF', vio: '#A78BFA' },
-          boxShadow: { neon: '0 0 24px rgba(110,231,255,0.25)' }
-        }
-      }
-    }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>من المستقبل</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    body { background:#0b0f1a; color:#dbeafe; }
-    .glass { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(10px);}
-    .btn { border:1px solid rgba(110,231,255,0.35);}
-    .glitch { position:relative; display:inline-block; }
-    .glitch::before, .glitch::after {
-      content: attr(data-text); position:absolute; left:0; top:0; width:100%; height:100%;
+    body {
+      background: #0d1117;
+      color: #fff;
+      font-family: "Cairo", sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
     }
-    .glitch::before { color:#6EE7FF; transform: translate(2px,0); }
-    .glitch::after  { color:#A78BFA; transform: translate(-2px,0); }
-    .cursor {position:fixed; width:14px; height:14px; border-radius:999px;
-      border:1px solid rgba(110,231,255,.9); pointer-events:none; z-index:9999;
-      transform:translate(-50%,-50%);}
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #6a5af9, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 80px;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      color: #fff;
+      background: #161b22;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #6a5af9;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      box-shadow: 0 0 25px #00f2fe;
+    }
+    .social {
+      margin-top: 80px;
+    }
+    .social h2 {
+      margin-bottom: 15px;
+    }
+    .icons a {
+      margin: 0 10px;
+      font-size: 2rem;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .icons a:hover {
+      color: #00f2fe;
+    }
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
   </style>
 </head>
-<body class="dark">
-  <!-- خلفية 3D -->
-  <canvas id="bg" class="fixed inset-0 -z-10"></canvas>
+<body>
+  <h1>من المستقبل</h1>
+  <p>موقعك يبدأ من هنا</p>
+  <a href="#" class="btn">🚀 انطلق</a>
 
-  <!-- المؤشر -->
-  <div class="cursor" id="cursor"></div>
-
-  <!-- القسم الرئيسي -->
-  <section class="min-h-screen flex items-center justify-center">
-    <div class="text-center">
-      <h1 class="font-display text-6xl md:text-7xl glitch" data-text="من المستقبل">من المستقبل</h1>
-      <p class="mt-4 text-slate-300/90 text-lg">موقعك يبدأ من هنا</p>
-      <div class="mt-8">
-        <a href="#social" class="btn glass rounded-lg px-6 py-3 shadow-neon">انطلق 🚀</a>
-      </div>
+  <div class="social">
+    <h2>تابعني على</h2>
+    <div class="icons">
+      <a href="https://instagram.com/t_u4w" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@rcoe" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
-  </section>
+  </div>
 
-  <!-- الحسابات -->
-  <footer id="social" class="py-12 border-t border-white/10 text-center">
-    <h2 class="font-display text-2xl mb-6">تابعني على</h2>
-    <div class="flex justify-center gap-8 text-3xl">
-      <!-- TikTok -->
-      <a href="https://www.tiktok.com/@rcoe" target="_blank" class="hover:text-neon transition">
-        <i class="fab fa-tiktok"></i>
-      </a>
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/t_u4w" target="_blank" class="hover:text-vio transition">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-    <p class="mt-6 text-sm text-slate-400/80">© 2040 • NEURO•FUTURE • <strong>Humam.Es</strong></p>
+  <footer>
+    NEURO·FUTURE • <strong>Humam.Es</strong> • © 2040
   </footer>
-
-  <!-- FontAwesome Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <!-- Three.js -->
-  <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
-  <script>
-    // مؤشر
-    const c = document.getElementById('cursor');
-    window.addEventListener('mousemove', e => {
-      c.style.left = e.clientX+'px';
-      c.style.top  = e.clientY+'px';
-    });
-
-    // WebGL خلفية نجوم
-    const canvas = document.getElementById('bg');
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, innerWidth/innerHeight, 0.1, 1000);
-    camera.position.z = 2.2;
-    const resize = () => {
-      renderer.setSize(innerWidth, innerHeight);
-      camera.aspect = innerWidth/innerHeight;
-      camera.updateProjectionMatrix();
-    };
-    addEventListener('resize', resize); resize();
-
-    const starCount = 2000;
-    const geom = new THREE.BufferGeometry();
-    const positions = new Float32Array(starCount * 3);
-    for (let i=0;i<starCount;i++){
-      const r = 1.5 + Math.random()*6;
-      const phi = Math.random()*Math.PI*2;
-      const theta = Math.acos((Math.random()*2)-1);
-      positions[i*3+0] = r * Math.sin(theta)*Math.cos(phi);
-      positions[i*3+1] = r * Math.sin(theta)*Math.sin(phi);
-      positions[i*3+2] = r * Math.cos(theta);
-    }
-    geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const mat = new THREE.PointsMaterial({ size: 0.01, transparent:true, opacity:0.9, color: 0x6EE7FF });
-    const stars = new THREE.Points(geom, mat);
-    scene.add(stars);
-
-    let mx=0,my=0;
-    addEventListener('mousemove', (e)=>{
-      mx = (e.clientX / innerWidth - 0.5) * 0.4;
-      my = (e.clientY / innerHeight - 0.5) * 0.4;
-    });
-
-    const clock = new THREE.Clock();
-    const renderLoop = () => {
-      const t = clock.getElapsedTime();
-      stars.rotation.y = t * 0.02 + mx;
-      stars.rotation.x = Math.sin(t*0.3)*0.03 + my;
-      renderer.setClearColor(0x0b0f1a, 1);
-      renderer.render(scene, camera);
-      requestAnimationFrame(renderLoop);
-    };
-    renderLoop();
-  </script>
 </body>
 </html>
