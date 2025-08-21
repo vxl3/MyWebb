@@ -13,7 +13,10 @@
       text-align: center;
       margin: 0;
       padding: 0;
+      transition: background 0.3s, color 0.3s;
+      scroll-behavior: smooth;
     }
+
     h1 {
       font-size: 3rem;
       background: linear-gradient(90deg, #6a5af9, #00f2fe);
@@ -21,10 +24,12 @@
       -webkit-text-fill-color: transparent;
       margin-top: 80px;
     }
+
     p {
       font-size: 1.2rem;
       color: #ccc;
     }
+
     .btn {
       display: inline-block;
       margin-top: 20px;
@@ -35,35 +40,97 @@
       border-radius: 8px;
       text-decoration: none;
       box-shadow: 0 0 15px #6a5af9;
-      transition: 0.3s;
+      transition: 0.3s, transform 0.3s;
     }
+
     .btn:hover {
       box-shadow: 0 0 25px #00f2fe;
+      transform: scale(1.05);
     }
+
     .social {
       margin-top: 80px;
     }
+
     .social h2 {
       margin-bottom: 15px;
     }
+
     .icons a {
       margin: 0 10px;
       font-size: 2rem;
       color: #fff;
-      transition: 0.3s;
+      transition: 0.3s, transform 0.3s;
     }
+
     .icons a:hover {
       color: #00f2fe;
+      transform: scale(1.2);
     }
+
     footer {
       margin-top: 50px;
       padding: 20px;
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    /* زر الوضع الداكن */
+    .dark-toggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 6px;
+      background: #6a5af9;
+      color: white;
+      font-weight: bold;
+      z-index: 999;
+      transition: background 0.3s;
+    }
+
+    .dark-toggle:hover {
+      background: #00f2fe;
+    }
+
+    /* الوضع الداكن */
+    body.dark {
+      background-color: #f0f2f5;
+      color: #111;
+    }
+
+    body.dark p {
+      color: #333;
+    }
+
+    body.dark .btn {
+      background: #ddd;
+      color: #111;
+      box-shadow: 0 0 15px #6a5af9;
+    }
+
+    body.dark .btn:hover {
+      box-shadow: 0 0 25px #00f2fe;
+    }
+
+    body.dark .icons a {
+      color: #111;
+    }
+
+    body.dark .icons a:hover {
+      color: #6a5af9;
+    }
+
+    body.dark footer {
+      color: #555;
+    }
   </style>
 </head>
 <body>
+
+  <div class="dark-toggle" onclick="toggleDark()">وضع داكن</div>
+
   <h1>من المستقبل</h1>
   <p>موقعك يبدأ من هنا</p>
   <a href="#" class="btn">🚀 انطلق</a>
@@ -73,11 +140,19 @@
     <div class="icons">
       <a href="https://instagram.com/t_u4w" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@rcoe" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/Humam.Es" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 
   <footer>
     NEURO·FUTURE • <strong>Humam.Es</strong> • © 2040
   </footer>
+
+<script>
+  function toggleDark() {
+    document.body.classList.toggle('dark');
+  }
+</script>
+
 </body>
 </html>
