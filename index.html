@@ -4,155 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>من المستقبل</title>
+  <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: #0d1117;
-      color: #fff;
-      font-family: "Cairo", sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s, color 0.3s;
-      scroll-behavior: smooth;
-    }
-
-    h1 {
-      font-size: 3rem;
-      background: linear-gradient(90deg, #6a5af9, #00f2fe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-top: 80px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 1rem;
-      color: #fff;
-      background: #161b22;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 0 15px #6a5af9;
-      transition: 0.3s, transform 0.3s;
-    }
-
-    .btn:hover {
-      box-shadow: 0 0 25px #00f2fe;
-      transform: scale(1.05);
-    }
-
-    .social {
-      margin-top: 80px;
-    }
-
-    .social h2 {
-      margin-bottom: 15px;
-    }
-
-    .icons a {
-      margin: 0 10px;
-      font-size: 2rem;
-      color: #fff;
-      transition: 0.3s, transform 0.3s;
-    }
-
-    .icons a:hover {
-      color: #00f2fe;
-      transform: scale(1.2);
-    }
-
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    /* زر الوضع الداكن */
-    .dark-toggle {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 6px;
-      background: #6a5af9;
-      color: white;
-      font-weight: bold;
-      z-index: 999;
-      transition: background 0.3s;
-    }
-
-    .dark-toggle:hover {
-      background: #00f2fe;
-    }
-
-    /* الوضع الداكن */
-    body.dark {
-      background-color: #f0f2f5;
-      color: #111;
-    }
-
-    body.dark p {
-      color: #333;
-    }
-
-    body.dark .btn {
-      background: #ddd;
-      color: #111;
-      box-shadow: 0 0 15px #6a5af9;
-    }
-
-    body.dark .btn:hover {
-      box-shadow: 0 0 25px #00f2fe;
-    }
-
-    body.dark .icons a {
-      color: #111;
-    }
-
-    body.dark .icons a:hover {
-      color: #6a5af9;
-    }
-
-    body.dark footer {
-      color: #555;
-    }
-  </style>
+  <!-- مكتبة Vanilla-tilt للثلاثي الأبعاد -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
   <div class="dark-toggle" onclick="toggleDark()">وضع داكن</div>
 
-  <h1>من المستقبل</h1>
-  <p>موقعك يبدأ من هنا</p>
-  <a href="#" class="btn">🚀 انطلق</a>
+  <header data-tilt data-tilt-max="15" data-tilt-speed="400">
+    <h1>من المستقبل</h1>
+    <p>موقعك يبدأ من هنا</p>
+    <a href="#" class="btn">🚀 انطلق</a>
+  </header>
 
-  <div class="social">
+  <section class="social" data-tilt data-tilt-max="15" data-tilt-speed="400">
     <h2>تابعني على</h2>
     <div class="icons">
       <a href="https://instagram.com/t_u4w" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@rcoe" target="_blank"><i class="fab fa-tiktok"></i></a>
       <a href="https://www.instagram.com/Humam.Es" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-  </div>
+  </section>
 
-  <footer>
+  <footer data-tilt data-tilt-max="10" data-tilt-speed="300">
     NEURO·FUTURE • <strong>Humam.Es</strong> • © 2040
   </footer>
 
-<script>
-  function toggleDark() {
-    document.body.classList.toggle('dark');
-  }
-</script>
+  <!-- نافذة دردشة ذكية -->
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header" onclick="toggleChat()">💬 دردشة AI</div>
+    <div class="chat-body" id="chatBody">
+      <div class="message">مرحباً! اسألني أي شيء.</div>
+    </div>
+    <input type="text" id="chatInput" placeholder="اكتب رسالتك واضغط Enter" onkeydown="sendMessage(event)">
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
