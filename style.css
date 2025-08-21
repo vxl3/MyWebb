@@ -1,0 +1,161 @@
+body {
+  background: #0d1117;
+  color: #fff;
+  font-family: "Cairo", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+}
+
+header h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #6a5af9, #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 80px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #fff;
+  background: #161b22;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 15px #6a5af9;
+  transition: 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  box-shadow: 0 0 25px #00f2fe;
+  transform: scale(1.05);
+}
+
+/* التواصل الاجتماعي */
+.social {
+  margin-top: 80px;
+}
+
+.social h2 {
+  margin-bottom: 15px;
+}
+
+.icons a {
+  margin: 0 10px;
+  font-size: 2rem;
+  color: #fff;
+  transition: 0.3s, transform 0.3s;
+}
+
+.icons a:hover {
+  color: #00f2fe;
+  transform: scale(1.2);
+}
+
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* زر الوضع الداكن */
+.dark-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #6a5af9;
+  color: white;
+  font-weight: bold;
+  z-index: 999;
+  transition: background 0.3s;
+}
+
+.dark-toggle:hover {
+  background: #00f2fe;
+}
+
+/* الوضع الداكن */
+body.dark {
+  background-color: #f0f2f5;
+  color: #111;
+}
+
+body.dark header p {
+  color: #333;
+}
+
+body.dark .btn {
+  background: #ddd;
+  color: #111;
+  box-shadow: 0 0 15px #6a5af9;
+}
+
+body.dark .btn:hover {
+  box-shadow: 0 0 25px #00f2fe;
+}
+
+body.dark .icons a {
+  color: #111;
+}
+
+body.dark .icons a:hover {
+  color: #6a5af9;
+}
+
+body.dark footer {
+  color: #555;
+}
+
+/* نافذة الدردشة */
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  font-family: "Cairo", sans-serif;
+  z-index: 9999;
+}
+
+.chat-header {
+  background: #6a5af9;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+}
+
+.chat-body {
+  background: #161b22;
+  color: #fff;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  padding: 10px;
+}
+
+.chat-body .message {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#chatInput {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  outline: none;
+  border-radius: 0 0 10px 10px;
+  display: none;
+}
