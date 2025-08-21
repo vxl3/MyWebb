@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEURO•FUTURE</title>
+  <meta name="theme-color" content="#0b0f1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- Tailwind (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Orbitron','system-ui'],
+            sans: ['Inter','system-ui'],
+          },
+          colors: {
+            base: '#0b0f1a',
+            neon: '#6EE7FF',
+            vio: '#A78BFA',
+          },
+          boxShadow: {
+            neon: '0 0 24px rgba(110,231,255,0.25)',
+          },
+          backdropBlur: {
+            xs: '2px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { --bg:#0b0f1a; --fg:#dbeafe; --edge:#1f2937; --glow:#5eead4; }
+    html, body { height:100%; background: var(--bg); color: var(--fg); }
+    .glass {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+    .btn {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(110,231,255,0.35);
+    }
+    .btn::after {
+      content:""; position:absolute; inset:-150% 0 0 0;
+      background: radial-gradient(circle at 50% 50%, rgba(110,231,255,.25), transparent 55%);
+      animation: pulse 6s linear infinite;
+    }
+    @keyframes pulse { to { transform: translateY(140%); } }
+
+    /* glitch headline */
+    .glitch {
+      position:relative; display:inline-block; filter: drop-shadow(0 0 8px rgba(167,139,250,.45));
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position:absolute; left:0; top:0; width:100%; height:100%;
+      clip-path: inset(0 0 0 0);
+    }
+    .glitch::before { color:#6EE7FF; transform: translate(2px,0); mix-blend-mode:screen; animation: g1 2.2s infinite; }
+    .glitch::after  { color:#A78BFA; transform: translate(-2px,0); mix-blend-mode:screen; animation: g2 2.5s infinite; }
+    @keyframes g1 { 0%,100%{clip-path: inset(0 0 0 0)} 50%{clip-path: inset(20% 0 30% 0)} }
+    @keyframes g2 { 0%,100%{clip-path: inset(0 0 0 0)} 50%{clip-path: inset(60% 0 10% 0)} }
+
+    /* custom cursor */
+    .cursor {
+      position: fixed; width: 14px; height: 14px; border-radius: 999px;
+      border:1px solid rgba(110,231,255,.9); pointer-events:none; z-index: 9999;
+      transform: translate(-50%,-50%); transition: transform .08s ease-out;
+      box-shadow: 0 0 20px rgba(110,231,255,.4), inset 0 0 12px rgba(110,231,255,.25);
+      backdrop-filter: blur(3px);
+    }
+  </style>
+</head>
+<body class="dark">
+  <!-- WebGL background -->
+  <canvas id="bg" class="fixed inset-0 -z-10"></canvas>
+
+  <!-- custom cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- top nav -->
+  <header class="fixed inset-x-0 top-0 z-30">
+    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+      <div class="font-display text-lg tracking-widest">NEURO•FUTURE</div>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#features" class="hover:text-neon transition">المزايا</a>
+        <a href="#tech" class="hover:text-neon transition">التقنيات</a>
+        <a href="#cta" class="hover:text-neon transition">ابدأ</a>
+      </nav>
+      <button id="themeToggle" class="btn rounded-md px-3 py-1.5 text-sm">تبديل الوضع</button>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section class="min-h-screen flex items-center">
+    <div class="mx-auto max-w-7xl px-4 pt-32 pb-16 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="font-display text-4xl md:text-6xl leading-tight">
+          <span class="glitch" data-text="من المستقبل">من المستقبل</span>،
+          موقعك يبدأ من هنا
+        </h1>
+        <p class="mt-4 text-slate-300/90">
+          واجهة سريعة، أنيميشنز محسوبة، وتجربة كأنّها من سنة 2040. صمّمناها
+          بخفة وبدون بهرجة مزعجة.
+        </p>
+        <div class="mt-8 flex gap-3">
+          <a href="#cta" class="btn glass rounded-lg px-5 py-3 shadow-neon">جرّب الآن</a>
+          <a href="#tech" class="glass rounded-lg px-5 py-3">شوف تحت الغطاء</a>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-6 border shadow-neon">
+        <div class="text-xs uppercase tracking-[0.3em] text-slate-300/70">Live Telemetry</div>
+        <div class="mt-3 grid grid-cols-3 gap-3">
+          <div class="glass rounded-xl p-4 text-center">
+            <div class="text-2xl font-display">0.9ms</div>
+            <div class="text-xs text-slate-300/70 mt-1">Latency</div>
+          </div>
+          <div class="glass rounded-xl p-4 text-center">
+            <div class="text-2xl font-display">99.99%</div>
+            <div class="text-xs text-slate-300/70 mt-1">Uptime</div>
+          </div>
+          <div class="glass rounded-xl p-4 text-center">
+            <div class="text-2xl font-display">+∞</div>
+            <div class="text-xs text-slate-300/70 mt-1">Scale</div>
+          </div>
+        </div>
+        <div class="mt-6 text-sm text-slate-300/80">
+          كلشي ديناميكي، حتى الخلفية: نجوم حقيقية تتفاعل ويا حركة الماوس.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- features -->
+  <section id="features" class="py-20">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="font-display text-3xl md:text-4xl">المزايا</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <article class="glass rounded-2xl p-6">
+          <h3 class="font-display text-xl">سرعة ضوئية</h3>
+          <p class="mt-2 text-slate-300/80">كود خفيف، صور WEBP، lazy-loading، وprefetch ذكي.</p>
+        </article>
+        <article class="glass rounded-2xl p-6">
+          <h3 class="font-display text-xl">تجربة حيّة</h3>
+          <p class="mt-2 text-slate-300/80">Micro-interactions محسوبة بدون إزعاج المستخدم.</p>
+        </article>
+        <article class="glass rounded-2xl p-6">
+          <h3 class="font-display text-xl">شكل مستقبلي</h3>
+          <p class="mt-2 text-slate-300/80">Neon + Glassmorphism + 3D Particles + Glitch typogram.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- tech -->
+  <section id="tech" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div class="glass rounded-2xl p-6">
+        <h2 class="font-display text-2xl">التقنيات</h2>
+        <ul class="mt-4 space-y-2 text-slate-300/85 list-disc pr-5">
+          <li>Three.js للنجوم التفاعلية (WebGL Points)</li>
+          <li>Tailwind Play CDN للستايل السريع</li>
+          <li>RTL جاهز + Arabic-friendly fonts</li>
+          <li>Theme Toggle (Light/Dark) مع حفظ التفضيل</li>
+        </ul>
+      </div>
+      <div class="glass rounded-2xl p-6">
+        <h2 class="font-display text-2xl">API مستقبلية (وهمية)</h2>
+        <pre class="mt-3 text-xs overflow-auto"><code>GET /v2040/telemetry
+200 OK
+{ "latency": "0.9ms", "uptime": "99.99%", "scale": "∞" }</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="py-24">
+    <div class="mx-auto max-w-3xl px-4 text-center">
+      <h2 class="font-display text-3xl md:text-4xl">جاهز تصعد للمرحلة الجاية؟</h2>
+      <p class="mt-3 text-slate-300/85">ديبلوي بنقرة، وابدأ استقبل زوار اليوم—من بكرة.</p>
+      <a href="#" class="mt-6 inline-block btn glass rounded-xl px-6 py-3 shadow-neon">أطلق الآن</a>
+    </div>
+  </section>
+
+  <footer class="py-10 border-t border-white/10 text-center text-sm text-slate-400/80">
+    © 2040 • NEURO•FUTURE
+  </footer>
+
+  <!-- libs -->
+  <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+  <script>
+    // theme toggle (persist)
+    const themeBtn = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const stored = localStorage.getItem('theme');
+    if (stored) document.body.classList.toggle('dark', stored === 'dark');
+    themeBtn.onclick = () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    };
+
+    // custom cursor
+    const c = document.getElementById('cursor');
+    window.addEventListener('mousemove', e => {
+      c.style.left = e.clientX+'px';
+      c.style.top  = e.clientY+'px';
+    });
+
+    // WebGL starfield
+    const canvas = document.getElementById('bg');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, innerWidth/innerHeight, 0.1, 1000);
+    camera.position.z = 2.2;
+
+    const resize = () => {
+      renderer.setSize(innerWidth, innerHeight);
+      camera.aspect = innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
+    };
+    addEventListener('resize', resize);
+    resize();
+
+    // stars
+    const starCount = 2000;
+    const geom = new THREE.BufferGeometry();
+    const positions = new Float32Array(starCount * 3);
+    for (let i=0;i<starCount;i++){
+      const r = 1.5 + Math.random()*6;
+      const phi = Math.random()*Math.PI*2;
+      const theta = Math.acos((Math.random()*2)-1);
+      positions[i*3+0] = r * Math.sin(theta)*Math.cos(phi);
+      positions[i*3+1] = r * Math.sin(theta)*Math.sin(phi);
+      positions[i*3+2] = r * Math.cos(theta);
+    }
+    geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const mat = new THREE.PointsMaterial({ size: 0.01, transparent:true, opacity:0.9, color: 0x6EE7FF });
+    const stars = new THREE.Points(geom, mat);
+    scene.add(stars);
+
+    // parallax
+    let mx=0,my=0;
+    addEventListener('mousemove', (e)=>{
+      mx = (e.clientX / innerWidth - 0.5) * 0.4;
+      my = (e.clientY / innerHeight - 0.5) * 0.4;
+    });
+
+    // animate
+    const clock = new THREE.Clock();
+    const renderLoop = () => {
+      const t = clock.getElapsedTime();
+      stars.rotation.y = t * 0.02 + mx;
+      stars.rotation.x = Math.sin(t*0.3)*0.03 + my;
+      renderer.setClearColor(0x0b0f1a, 1);
+      renderer.render(scene, camera);
+      requestAnimationFrame(renderLoop);
+    };
+    renderLoop();
+  </script>
+</body>
+</html>
